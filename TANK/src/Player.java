@@ -5,7 +5,7 @@ import javax.swing.*;
 public class Player extends Tank {
     private Image img;
 
-    public Player(int x, int y){
+    public Player(int x, int y) {
         super(x, y);
         ImageIcon ii = new ImageIcon("TANK/src/resource/PlayerTank.gif");
         img = ii.getImage();

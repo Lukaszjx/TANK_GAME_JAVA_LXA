@@ -1,14 +1,9 @@
-import java.awt.*;
-import java.util.ArrayList;
-
-import javax.swing.*;
-
-
-
-public class Window extends JFrame{
+import javax.swing.JFrame;
+public class Window extends JFrame {
 	public static void main(String[]args){
         Window win = new Window();
     }
+
     public Window(){
         DrawTanks tanks = new DrawTanks();
         this.add(tanks);
