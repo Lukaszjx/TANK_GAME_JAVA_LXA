@@ -1,3 +1,5 @@
+package GUI;
+
 public enum Direction {
     LEFT(-10, 0), RIGHT(10, 0), UP(0, -10), DOWN(0, 10);
 

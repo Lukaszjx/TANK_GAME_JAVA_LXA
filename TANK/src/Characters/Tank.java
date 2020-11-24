@@ -1,7 +1,6 @@
-import java.awt.*;
-import javax.swing.*;
+package Characters;
 
-import javax.swing.ImageIcon;
+import java.awt.*;
 
 // THE TANK ABOVE ALL
 public abstract class Tank {

@@ -1,10 +1,11 @@
+package GUI;
+
 import java.awt.*;
 import java.util.ArrayList;
 import javax.swing.*;
-import javax.swing.Timer;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 import java.awt.event.*;
+import Characters.*;
+
 public class DrawTanks extends JPanel implements KeyListener { // DRAW IMAGE
 
     private ArrayList<Tank> list = new ArrayList<>();
@@ -38,29 +39,18 @@ public class DrawTanks extends JPanel implements KeyListener { // DRAW IMAGE
 
     // Functions to handle keyboard inputs
     public void keyPressed(KeyEvent e) {
-        int c = e.getKeyCode();
-        //System.out.println(c);
-        switch (c) {
-            case KeyEvent.VK_LEFT:
-                System.out.println("left key pressed");
-                setDir(Direction.LEFT);
-                break;
-            case KeyEvent.VK_RIGHT:
-                System.out.println("right key pressed");
-                setDir(Direction.RIGHT);
-                break;
-            case KeyEvent.VK_UP:
-                System.out.println("up key pressed");
-                setDir(Direction.UP);
-                break;
-            case KeyEvent.VK_DOWN:
-                System.out.println("down key pressed");
-                setDir(Direction.DOWN);
-                break;
+        
+        Direction d = ArrowKey.handleArrow(e);
+        if (d == null) 
+            d = WASDKey.handleWASD(e);
+
+        if (d != null)
+        {
+            setDir(d);
+            // Move tank player by direction d
+            Move.MoveTank(player, d);
+            repaint();
         }
-        player.setX(player.getX() + getDir().getDeltaX());
-        player.setY(player.getY() + getDir().getDeltaY());
-        repaint();
     }
     public void keyTyped(KeyEvent e) {}
     public void keyReleased(KeyEvent e) {}
