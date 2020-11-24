@@ -1,4 +1,4 @@
-package GUI;
+package Characters;
 
 import java.awt.event.*;
 public class ArrowKey {
