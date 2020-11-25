@@ -7,6 +7,7 @@ public class WoodCrate extends Obstacles {
         super(x, y);
         setHp();
         setImg();
+        setSize();
     }
     @Override
     public void setHp() {
@@ -19,5 +20,12 @@ public class WoodCrate extends Obstacles {
         // TODO Auto-generated method stub
         ImageIcon ii = new ImageIcon("TANK/src/resource/crateWood.png");
         super.setImg(ii.getImage());
+    }
+
+    @Override
+    public void setSize() {
+        // TODO Auto-generated method stub
+        super.setW(super.getImg().getWidth(null));
+        super.setH(super.getImg().getHeight(null));
     }
 }

@@ -8,6 +8,7 @@ public class MetalCrate extends Obstacles {
         super(x, y);
         setHp();
         setImg();
+        setSize();
     }
     @Override
     public void setHp() {
@@ -20,5 +21,12 @@ public class MetalCrate extends Obstacles {
         // TODO Auto-generated method stub
         ImageIcon ii = new ImageIcon("TANK/src/resource/crateMetal.png");
         super.setImg(ii.getImage());
+    }
+
+    @Override
+    public void setSize() {
+        // TODO Auto-generated method stub
+        super.setW(super.getImg().getWidth(null));
+        super.setH(super.getImg().getWidth(null));
     }
 }

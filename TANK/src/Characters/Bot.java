@@ -10,6 +10,12 @@ public class Bot extends Tank {
     public Bot(int x, int y){
         super(x, y);
         setImg();
+        setSize();
+    }
+
+    public void setSize() {
+        super.setW(img.getWidth(null));
+        super.setH(img.getHeight(null));
     }
 
     public String toString() {

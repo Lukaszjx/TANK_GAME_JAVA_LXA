@@ -13,34 +13,33 @@ public class DrawTanks extends JPanel { // DRAW IMAGE
     private Player player;
 
     public DrawTanks() {
-    
-        // Controll game cycle
-        Timer t = new Timer(5, new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // TODO Auto-generated method stub
-                repaint();
-            }
-
-        });
-        t.start();
-
 
         player = new Player(100, 200);
-        // handle keyboard input for player tank
-        addKeyListener(new KeyAdapter(player));
-        setFocusable(true);
-        setBackground(Color.BLACK);
-        setFocusTraversalKeysEnabled(false);
 
-        
         Tank t2 = new Bot(200, 100);
         Obstacles metal = new MetalCrate(200, 200);
         Obstacles wood = new WoodCrate(300, 300);
         obs.add(metal);
         obs.add(wood);
         tanks.add(t2);
+
+        // handle keyboard input for player tank
+        addKeyListener(new KeyAdapter(player, tanks, obs));
+        setFocusable(true);
+        setBackground(Color.BLACK);
+        setFocusTraversalKeysEnabled(false);
+         
+        // Controll game cycle
+        Timer t = new Timer(5, new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //TODO Auto-generated method stub
+                repaint();
+            }
+
+        });
+        t.start();
     }
 
     @Override
