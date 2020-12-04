@@ -8,7 +8,7 @@ import Characters.*;
 
 public class DrawTanks extends JPanel { // DRAW IMAGE
 
-    private ArrayList<Tank> tanks = new ArrayList<Tank>();
+    private ArrayList<Bot> tanks = new ArrayList<Bot>();
     private ArrayList<Obstacles> obs = new ArrayList<Obstacles>();
     private Player player;
 
@@ -16,7 +16,7 @@ public class DrawTanks extends JPanel { // DRAW IMAGE
 
         player = new Player(100, 200);
 
-        Tank t2 = new Bot(200, 100);
+        Bot t2 = new Bot(200, 100);
         Obstacles metal = new MetalCrate(200, 200);
         Obstacles wood = new WoodCrate(300, 300);
         obs.add(metal);
@@ -26,15 +26,26 @@ public class DrawTanks extends JPanel { // DRAW IMAGE
         // handle keyboard input for player tank
         addKeyListener(new KeyAdapter(player, tanks, obs));
         setFocusable(true);
-        setBackground(Color.BLACK);
+        // setBackground(Color.BLACK);
+        JButton b = new JButton("Hello");
+        this.add(b);
         setFocusTraversalKeysEnabled(false);
          
         // Controll game cycle
         Timer t = new Timer(5, new ActionListener() {
+        int botTimeControl = 0;
 
             @Override
             public void actionPerformed(ActionEvent e) {
                 //TODO Auto-generated method stub
+                botTimeControl++;
+                if (botTimeControl >= 20)
+                {
+                    for (Bot t: tanks) {
+                        t.move(tanks, obs);
+                   }
+                   botTimeControl = 0;
+                }
                 repaint();
             }
 
@@ -56,7 +67,7 @@ public class DrawTanks extends JPanel { // DRAW IMAGE
             g.drawImage(ob.getImg(), ob.getX(), ob.getY(), null);
     }
 
-    public ArrayList<Tank> getList() {
+    public ArrayList<Bot> getList() {
         return tanks;
     }
 

@@ -3,15 +3,15 @@ package GUI;
 import java.awt.event.*;
 import java.util.ArrayList;
 
+import Characters.Bot;
 import Characters.Obstacles;
 import Characters.Player;
-import Characters.Tank;
 
 public class KeyAdapter implements KeyListener {
     private Player player;
-    private ArrayList<Tank> myTanks;
+    private ArrayList<Bot> myTanks;
     private ArrayList<Obstacles> myObs;
-    public KeyAdapter(Player player, ArrayList<Tank> tanks, ArrayList<Obstacles> obs) {
+    public KeyAdapter(Player player, ArrayList<Bot> tanks, ArrayList<Obstacles> obs) {
         this.player = player;
         this.myTanks = tanks;
         this.myObs = obs;
