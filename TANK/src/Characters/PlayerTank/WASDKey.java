@@ -1,6 +1,8 @@
-package Characters;
+package Characters.PlayerTank;
 
 import java.awt.event.*;
+
+import Characters.Direction;
 public class WASDKey {
     public static Direction handleWASD(KeyEvent e){
         int c = e.getKeyCode();

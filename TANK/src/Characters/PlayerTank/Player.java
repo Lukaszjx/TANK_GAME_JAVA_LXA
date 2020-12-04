@@ -1,9 +1,14 @@
-package Characters;
+package Characters.PlayerTank;
 
 import java.awt.event.*;
 import java.util.ArrayList;
 
 import javax.swing.*;
+
+import Characters.Direction;
+import Characters.Tank;
+import Characters.BotTanks.Bot;
+import Characters.Props.Obstacles;
 
 // PLAYER TANK
 public class Player extends Tank {

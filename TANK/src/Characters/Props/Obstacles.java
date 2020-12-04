@@ -1,5 +1,6 @@
-package Characters;
+package Characters.Props;
 
+import Characters.Sprites;
 
 public abstract class Obstacles extends Sprites {
 

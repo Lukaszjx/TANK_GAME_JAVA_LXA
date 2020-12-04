@@ -1,4 +1,4 @@
-package Characters;
+package Characters.Props;
 
 import javax.swing.ImageIcon;
 

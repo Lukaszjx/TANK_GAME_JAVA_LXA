@@ -1,19 +1,22 @@
-package Characters;
+package Characters.BotTanks;
 
-import javax.swing.*;
+import Characters.Direction;
+import Characters.Tank;
+import Characters.Props.Obstacles;
+
 import java.util.ArrayList;
 import java.util.Random;
 
-// Build-Operate-Transfer (BOT)
-public class Bot extends Tank {
+public abstract class Bot extends Tank {
     private Random rand = new Random();
     private Direction directions[] = Direction.values();
     private final int NumberOfDirections = 4;
+    private int fireRate;
+    private int speed;
+    private int countMove = 0;
 
     public Bot(int x, int y){
         super(x, y);
-        setImg();
-        setSize();
         setDir(directions[rand.nextInt(NumberOfDirections)]);
     }
 
@@ -27,17 +30,14 @@ public class Bot extends Tank {
             newX = getX() + getDir().getDeltaX();
             newY = getY() + getDir().getDeltaY();
         }
+        countMove++;
+        if (countMove == fireRate) {
+            this.fire();
+            countMove = 0;
+        }
         setX(newX);
         setY(newY);
-    }
 
-    public void setSize() {
-        super.setW(getImg().getWidth(null));
-        super.setH(getImg().getHeight(null));
-    }
-
-    public String toString() {
-        return "this is a Bot tank";
     }
 
     @Override
@@ -46,10 +46,29 @@ public class Bot extends Tank {
         super.setHp(1);
     }
 
-    @Override
-    public void setImg() {
-        // TODO Auto-generated method stub
-        ImageIcon ii = new ImageIcon("TANK/src/resource/EnemyTank.png");
-        setImg(ii.getImage());
+    public int getSpeed() {
+        return speed;
     }
+
+    public void setSpeed(int speed) {
+        this.speed = speed;
+    }
+
+    public int getFireRate() {
+        return fireRate;
+    }
+
+    public void setFireRate(int fireRate) {
+        this.fireRate = fireRate;
+    }
+
+    public String toString() {
+        return "this is a Bot tank";
+    }
+
+    @Override
+    public abstract void setImg();
+    public abstract void setSpeed();
+    public abstract void setSize();
+    public abstract void setFireRate();
 }

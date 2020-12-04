@@ -3,9 +3,10 @@ package GUI;
 import java.awt.event.*;
 import java.util.ArrayList;
 
-import Characters.Bot;
-import Characters.Obstacles;
-import Characters.Player;
+import Characters.BotTanks.Bot;
+import Characters.PlayerTank.Player;
+import Characters.Props.Obstacles;
+
 
 public class KeyAdapter implements KeyListener {
     private Player player;

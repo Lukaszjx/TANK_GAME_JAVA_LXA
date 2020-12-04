@@ -3,6 +3,10 @@ package Characters;
 import java.awt.*;
 import java.util.ArrayList;
 
+import Characters.BotTanks.Bot;
+import Characters.Props.Obstacles;
+
+
 public abstract class Sprites {
     private int hp, x, y, w, h;
     private Image img;

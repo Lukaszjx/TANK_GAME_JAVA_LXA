@@ -1,6 +1,8 @@
-package Characters;
+package Characters.PlayerTank;
 
 import java.awt.event.*;
+
+import Characters.Direction;
 public class ArrowKey {
     public static Direction handleArrow(KeyEvent e) {
         int c = e.getKeyCode();
