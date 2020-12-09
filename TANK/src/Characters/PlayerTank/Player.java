@@ -3,9 +3,11 @@ package Characters.PlayerTank;
 import java.awt.event.*;
 
 import javax.swing.*;
+
 import java.awt.Graphics;
 import Characters.Direction;
 import Characters.Tank;
+import Characters.Bullet.Bullet;
 
 
 // PLAYER TANK
@@ -18,6 +20,11 @@ public class Player extends Tank {
 
     public void draw(Graphics g){
         g.drawImage(getImg(), getX(), getY(), null);
+    }
+
+    public void drawBullets(Graphics g){
+        for (Bullet b: getBullets())
+            b.draw(g);
     }
 
     public void setSize() {

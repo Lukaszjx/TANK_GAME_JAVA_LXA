@@ -3,6 +3,7 @@ package Characters;
 import java.util.ArrayList;
 
 import Characters.BotTanks.Bot;
+import Characters.Bullet.Bullet;
 import Characters.PlayerTank.Player;
 import Characters.Props.Obstacles;
 import java.awt.Graphics;
@@ -51,6 +52,15 @@ public class GameObjects {
     public void drawObs(Graphics g){
         for (Obstacles o: obs){
             o.draw(g);
+        }
+    }
+
+    public void drawBullets(Graphics g){
+        for (Bot bot: bots)
+        {
+            //System.out.println(bot.getBullets());
+            for (Bullet bullet: bot.getBullets())
+                    bullet.draw(g);
         }
     }
 

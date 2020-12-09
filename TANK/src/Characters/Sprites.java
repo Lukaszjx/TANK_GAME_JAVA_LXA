@@ -84,7 +84,13 @@ public abstract class Sprites {
     }
 
     public boolean isCollide(Tank original, int newX, int newY){
+
         Rectangle r1 = getBounds(newX, newY);
+
+        Rectangle player = GameObjects.getInstance().getPlayer().getBounds();
+
+        if (r1.intersects(player)) return true;
+
         for (Obstacles obstacles : GameObjects.getInstance().getObs()) 
         {
             Rectangle r2 = obstacles.getBounds();

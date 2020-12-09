@@ -11,18 +11,14 @@ public abstract class Tank extends Sprites {
         super(x, y);
     }
 
-
-
     public void fire() {
         Bullet bullet = new NormalBullet(getX(), getY(), getDir());
+        System.out.println("new bullet created");
         bullets.add(bullet);
     }
-
-    
 
     public ArrayList<Bullet> getBullets(){
         return bullets;
     }
-    
 
 }

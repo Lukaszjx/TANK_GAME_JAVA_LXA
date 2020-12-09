@@ -1,12 +1,10 @@
 package GUI;
 
 import java.awt.*;
-import java.util.ArrayList;
 import javax.swing.*;
 import java.awt.event.*;
 import Characters.*;
 import Characters.BotTanks.*;
-import Characters.Bullet.*;
 import Characters.PlayerTank.*;
 import Characters.Props.*;
 
@@ -24,13 +22,10 @@ public class DrawTanks extends JPanel { // DRAW IMAGE
         NormalBot t2 = new NormalBot(200, 100);
         MetalCrate metal = new MetalCrate(200, 200);
         WoodCrate wood = new WoodCrate(300, 300);
+
         GameObjects.getInstance().addBot(t2);
         GameObjects.getInstance().addObs(metal);
         GameObjects.getInstance().addObs(wood);
-
-        // obs.add(metal);
-        // obs.add(wood);
-        // tanks.add(t2);
 
         // handle keyboard input for player tank
         addKeyListener(new KeyAdapter(GameObjects.getInstance().getPlayer()));
@@ -38,9 +33,7 @@ public class DrawTanks extends JPanel { // DRAW IMAGE
         setBackground(Color.BLACK);
         setFocusTraversalKeysEnabled(false);
          
-        // Controll game cycle
         Timer t = new Timer(5, new ActionListener() {
-        int botTimeControl = 0;
 
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -66,6 +59,9 @@ public class DrawTanks extends JPanel { // DRAW IMAGE
         oGameObjects.getPlayer().draw(g);
         oGameObjects.drawBots(g);
         oGameObjects.drawObs(g);
+    
+        //oGameObjects.getPlayer().drawBullets(g);
+        oGameObjects.drawBullets(g);
 
 
     }
