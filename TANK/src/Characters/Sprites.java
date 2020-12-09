@@ -1,7 +1,6 @@
 package Characters;
 
 import java.awt.*;
-import java.util.ArrayList;
 
 import Characters.BotTanks.Bot;
 import Characters.Props.Obstacles;
@@ -84,14 +83,14 @@ public abstract class Sprites {
         return r1.intersects(r2);
     }
 
-    public boolean isCollide(Tank original, int newX, int newY, ArrayList<Bot> tanks, ArrayList<Obstacles> obs){
+    public boolean isCollide(Tank original, int newX, int newY){
         Rectangle r1 = getBounds(newX, newY);
-        for (Obstacles obstacles : obs) 
+        for (Obstacles obstacles : GameObjects.getInstance().getObs()) 
         {
             Rectangle r2 = obstacles.getBounds();
             if (r1.intersects(r2)) return true;
         }
-        for (Bot t: tanks) 
+        for (Bot t: GameObjects.getInstance().getBots()) 
         {
             if (original != t)
             {

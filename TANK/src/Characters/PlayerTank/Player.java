@@ -1,14 +1,12 @@
 package Characters.PlayerTank;
 
 import java.awt.event.*;
-import java.util.ArrayList;
 
 import javax.swing.*;
-
+import java.awt.Graphics;
 import Characters.Direction;
 import Characters.Tank;
-import Characters.BotTanks.Bot;
-import Characters.Props.Obstacles;
+
 
 // PLAYER TANK
 public class Player extends Tank {
@@ -18,17 +16,17 @@ public class Player extends Tank {
         setSize();
     }
 
+    public void draw(Graphics g){
+        g.drawImage(getImg(), getX(), getY(), null);
+    }
+
     public void setSize() {
         super.setW(getImg().getWidth(null));
         super.setH(getImg().getHeight(null));
     }
 
-    public String toString() {
-        return "This is player tank";
-    }
 
-
-    public void keyPressed(KeyEvent e, ArrayList<Bot> tanks, ArrayList<Obstacles> obs) {
+    public void keyPressed(KeyEvent e) {
 
         System.out.println();
         Direction d = ArrowKey.handleArrow(e);
@@ -44,14 +42,11 @@ public class Player extends Tank {
             int newY = getY() + d.getDeltaY();
 
             //Check that player cannot run over obstacles and other tanks
-
-            if (isCollide(this, newX, newY, tanks, obs)){
+            
+            if (isCollide(this, newX, newY)){
                 newX = getX();
                 newY = getY();
             }
-            
-            
-
             setX(newX);
             setY(newY);
         }
