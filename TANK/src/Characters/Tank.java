@@ -1,13 +1,28 @@
 package Characters;
 
-import java.awt.*;
+import java.util.ArrayList;
+
+import Characters.Bullet.*;
 
 // THE TANK ABOVE ALL
 public abstract class Tank extends Sprites {
-
+    private ArrayList<Bullet> bullets = new ArrayList<>();
     public Tank(int x, int y) {
-        super(x,y);
+        super(x, y);
     }
 
-    public abstract Image getImg();
+
+
+    public void fire() {
+        Bullet bullet = new NormalBullet(getX(), getY(), getDir());
+        bullets.add(bullet);
+    }
+
+    
+
+    public ArrayList<Bullet> getBullets(){
+        return bullets;
+    }
+    
+
 }

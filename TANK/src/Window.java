@@ -1,3 +1,4 @@
+
 import javax.swing.JFrame;
 import GUI.DrawTanks;
 public class Window extends JFrame {

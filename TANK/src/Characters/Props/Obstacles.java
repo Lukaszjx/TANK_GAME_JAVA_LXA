@@ -1,6 +1,6 @@
-package Characters;
+package Characters.Props;
 
-import java.awt.*;
+import Characters.Sprites;
 
 public abstract class Obstacles extends Sprites {
 
