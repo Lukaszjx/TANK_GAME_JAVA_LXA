@@ -2,6 +2,8 @@ package Characters.BotTanks;
 
 import javax.swing.ImageIcon;
 
+import Characters.Speed;
+
 public class NormalBot extends Bot {
 
     public NormalBot(int x, int y) {
@@ -29,7 +31,7 @@ public class NormalBot extends Bot {
     @Override
     public void setSpeed() {
         // TODO Auto-generated method stub
-        setSpeed(1);
+        setSpeed(Speed.NORMAL);
     }
 
     @Override

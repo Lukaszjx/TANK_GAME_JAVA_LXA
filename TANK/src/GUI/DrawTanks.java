@@ -6,6 +6,7 @@ import javax.swing.*;
 import java.awt.event.*;
 import Characters.*;
 import Characters.BotTanks.*;
+import Characters.Bullet.*;
 import Characters.PlayerTank.*;
 import Characters.Props.*;
 
@@ -37,15 +38,15 @@ public class DrawTanks extends JPanel { // DRAW IMAGE
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                //TODO Auto-generated method stub
-                botTimeControl++;
-                if (botTimeControl >= 200)
-                {
-                    for (Bot t: tanks) {
-                        t.move(tanks, obs);
-                   }
-                   botTimeControl = 0;
-                }
+                // //TODO Auto-generated method stub
+                // botTimeControl++;
+                // if (botTimeControl >= 200)
+                // {
+                //     for (Bot t: tanks) {
+                //         t.move(tanks, obs);
+                //    }
+                //    botTimeControl = 0;
+                // }
                 repaint();
             }
 
@@ -59,9 +60,10 @@ public class DrawTanks extends JPanel { // DRAW IMAGE
         g.drawImage(player.getImg(), player.getX(), player.getY(), null);
 
         // Draw bot tanks and bullets
-        for (Tank i: tanks)
+        for (Bot i: tanks)
         {
-            g.drawImage(i.getImg(), i.getX(), i.getY(), null);
+            // g.drawImage(i.getImg(), i.getX(), i.getY(), null);
+            i.draw(g, tanks, obs);
             for (Bullet bullet: i.getBullets())
                 g.drawImage(bullet.getImg(), bullet.getX(), bullet.getY(), null);
         }

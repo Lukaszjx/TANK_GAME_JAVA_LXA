@@ -1,10 +1,14 @@
-package Characters;
+package Characters.Bullet;
 
 import javax.swing.ImageIcon;
 
-public class Bullet extends Sprites {
+import Characters.Direction;
+import Characters.Speed;
 
-    public Bullet(int x, int y, Direction dir){
+public class NormalBullet extends Bullet{
+
+    public NormalBullet(int x, int y, Direction dir)
+    {
         super(x,y);
         setHp();
         setImg();
@@ -12,11 +16,18 @@ public class Bullet extends Sprites {
         setDir(dir);
     }
 
-    public void move(){
-        while (getHp() > 0){
-            
-        }
-    }
+	@Override
+	public void setDamage() {
+		// TODO Auto-generated method stub
+		setDamage(1);
+	}
+
+	@Override
+	public void setSpeed() {
+		// TODO Auto-generated method stub
+		setSpeed(Speed.FAST);
+	}
+    
     @Override
     public void setHp() {
         // TODO Auto-generated method stub
