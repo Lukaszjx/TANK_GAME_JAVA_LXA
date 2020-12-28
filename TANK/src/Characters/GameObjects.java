@@ -62,6 +62,8 @@ public class GameObjects {
             for (Bullet bullet: bot.getBullets())
                     bullet.draw(g);
         }
+        for (Bullet bullet: player.getBullets())
+            bullet.draw(g);
     }
 
     public Player getPlayer() {

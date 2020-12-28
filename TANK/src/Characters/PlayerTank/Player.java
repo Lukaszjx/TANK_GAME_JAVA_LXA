@@ -35,27 +35,31 @@ public class Player extends Tank {
 
     public void keyPressed(KeyEvent e) {
 
-        System.out.println();
-        Direction d = ArrowKey.handleArrow(e);
-        if (d == null) 
-            d = WASDKey.handleWASD(e);
-
-        if (d != null)
+        if (e.getKeyCode() == KeyEvent.VK_SPACE)
+            this.fire();
+        else
         {
-            setDir(d);
+            Direction d = ArrowKey.handleArrow(e);
+            if (d == null) 
+                d = WASDKey.handleWASD(e);
 
-            // New position of player
-            int newX = getX() + d.getDeltaX();
-            int newY = getY() + d.getDeltaY();
+            if (d != null)
+            {
+                setDir(d);
 
-            //Check that player cannot run over obstacles and other tanks
-            
-            if (isCollide(this, newX, newY)){
-                newX = getX();
-                newY = getY();
+                // New position of player
+                int newX = getX() + d.getDeltaX();
+                int newY = getY() + d.getDeltaY();
+
+                //Check that player cannot run over obstacles and other tanks
+                
+                if (isCollide(this, newX, newY)){
+                    newX = getX();
+                    newY = getY();
+                }
+                setX(newX);
+                setY(newY);
             }
-            setX(newX);
-            setY(newY);
         }
     }
     public void keyTyped(KeyEvent e) {}
