@@ -10,9 +10,6 @@ import Characters.Props.*;
 
 public class DrawTanks extends JPanel { // DRAW IMAGE
 
-    // private ArrayList<Bot> tanks = new ArrayList<Bot>();
-    // private ArrayList<Obstacles> obs = new ArrayList<Obstacles>();
-    // private Player player;
     public DrawTanks() {
 
         Player player = new Player(100, 200);
@@ -37,15 +34,6 @@ public class DrawTanks extends JPanel { // DRAW IMAGE
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                // //TODO Auto-generated method stub
-                // botTimeControl++;
-                // if (botTimeControl >= 200)
-                // {
-                //     for (Bot t: tanks) {
-                //         t.move(tanks, obs);
-                //    }
-                //    botTimeControl = 0;
-                // }
                 repaint();
             }
 

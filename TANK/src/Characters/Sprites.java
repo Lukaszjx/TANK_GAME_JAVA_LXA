@@ -89,7 +89,7 @@ public abstract class Sprites {
 
         Rectangle player = GameObjects.getInstance().getPlayer().getBounds();
 
-        if (r1.intersects(player)) return true;
+        if (r1.intersects(player) && (!original.equals(GameObjects.getInstance().getPlayer()))) return true;
 
         for (Obstacles obstacles : GameObjects.getInstance().getObs()) 
         {
