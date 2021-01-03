@@ -13,6 +13,7 @@ public class NormalBullet extends Bullet{
         setHp();
         setImg();
         setSize();
+        setSpeed();
         setDir(dir);
     }
 

@@ -1,23 +1,16 @@
 package GUI;
 
 import java.awt.event.*;
-import java.util.ArrayList;
-
-import Characters.BotTanks.Bot;
 import Characters.PlayerTank.Player;
-import Characters.Props.Obstacles;
 
 
 public class KeyAdapter implements KeyListener {
     private Player player;
-    private ArrayList<Bot> myTanks;
-    private ArrayList<Obstacles> myObs;
-    public KeyAdapter(Player player, ArrayList<Bot> tanks, ArrayList<Obstacles> obs) {
+    public KeyAdapter(Player player) {
         this.player = player;
-        this.myTanks = tanks;
-        this.myObs = obs;
-    }
-    @Override
+	}
+
+	@Override
     public void keyTyped(KeyEvent e) {
         // TODO Auto-generated method stub
 
@@ -26,8 +19,7 @@ public class KeyAdapter implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         // TODO Auto-generated method stub
-        player.keyPressed(e, myTanks, myObs);
-        //System.out.println(player.getX() + " " + player.getY());
+        player.keyPressed(e);
     }
 
     @Override

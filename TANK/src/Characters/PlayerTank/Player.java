@@ -1,14 +1,14 @@
 package Characters.PlayerTank;
 
 import java.awt.event.*;
-import java.util.ArrayList;
 
 import javax.swing.*;
 
+import java.awt.Graphics;
 import Characters.Direction;
 import Characters.Tank;
-import Characters.BotTanks.Bot;
-import Characters.Props.Obstacles;
+import Characters.Bullet.Bullet;
+
 
 // PLAYER TANK
 public class Player extends Tank {
@@ -18,42 +18,48 @@ public class Player extends Tank {
         setSize();
     }
 
+    public void draw(Graphics g){
+        g.drawImage(getImg(), getX(), getY(), null);
+    }
+
+    public void drawBullets(Graphics g){
+        for (Bullet b: getBullets())
+            b.draw(g);
+    }
+
     public void setSize() {
         super.setW(getImg().getWidth(null));
         super.setH(getImg().getHeight(null));
     }
 
-    public String toString() {
-        return "This is player tank";
-    }
 
+    public void keyPressed(KeyEvent e) {
 
-    public void keyPressed(KeyEvent e, ArrayList<Bot> tanks, ArrayList<Obstacles> obs) {
-
-        System.out.println();
-        Direction d = ArrowKey.handleArrow(e);
-        if (d == null) 
-            d = WASDKey.handleWASD(e);
-
-        if (d != null)
+        if (e.getKeyCode() == KeyEvent.VK_SPACE)
+            this.fire();
+        else
         {
-            setDir(d);
+            Direction d = ArrowKey.handleArrow(e);
+            if (d == null) 
+                d = WASDKey.handleWASD(e);
 
-            // New position of player
-            int newX = getX() + d.getDeltaX();
-            int newY = getY() + d.getDeltaY();
+            if (d != null)
+            {
+                setDir(d);
 
-            //Check that player cannot run over obstacles and other tanks
+                // New position of player
+                int newX = getX() + d.getDeltaX();
+                int newY = getY() + d.getDeltaY();
 
-            if (isCollide(this, newX, newY, tanks, obs)){
-                newX = getX();
-                newY = getY();
+                //Check that player cannot run over obstacles and other tanks
+                
+                if (isCollide(this, newX, newY)){
+                    newX = getX();
+                    newY = getY();
+                }
+                setX(newX);
+                setY(newY);
             }
-            
-            
-
-            setX(newX);
-            setY(newY);
         }
     }
     public void keyTyped(KeyEvent e) {}

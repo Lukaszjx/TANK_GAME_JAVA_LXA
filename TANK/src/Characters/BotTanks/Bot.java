@@ -3,10 +3,8 @@ package Characters.BotTanks;
 import Characters.Direction;
 import Characters.Speed;
 import Characters.Tank;
-import Characters.Props.Obstacles;
 
 import java.awt.Graphics;
-import java.util.ArrayList;
 import java.util.Random;
 
 public abstract class Bot extends Tank {
@@ -23,11 +21,11 @@ public abstract class Bot extends Tank {
         setDir(directions[rand.nextInt(NumberOfDirections)]);
     }
 
-    public void move(ArrayList<Bot> tanks, ArrayList<Obstacles> obs) {
+    public void move() {
 
         int newX = getX() + getDir().getDeltaX();
         int newY = getY() + getDir().getDeltaY();
-        while (isCollide(this, newX, newY, tanks, obs))
+        while (isCollide(this, newX, newY))
         {
             setDir(directions[rand.nextInt(NumberOfDirections)]);
             newX = getX() + getDir().getDeltaX();
@@ -43,12 +41,12 @@ public abstract class Bot extends Tank {
 
     }
 
-    public void draw(Graphics g, ArrayList<Bot> tanks, ArrayList<Obstacles> obs){
+    public void draw(Graphics g){
         g.drawImage(getImg(), getX(), getY(), null);
         loopCount++;
         if (loopCount == getSpeed().getDelta())
         {
-            move(tanks, obs);
+            move();
             loopCount=0;
         }
     }

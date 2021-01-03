@@ -11,7 +11,6 @@ public class WASDKey {
         // handle AWSD keys 
         switch (c) {
             case KeyEvent.VK_A:
-                System.out.println("A key pressed");
                 return Direction.LEFT;
             case KeyEvent.VK_D:
                 return Direction.RIGHT;
