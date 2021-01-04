@@ -1,4 +1,5 @@
 package Characters.Bullet;
+import Characters.Direction;
 import Characters.Speed;
 import Characters.Sprites;
 import java.awt.Graphics;
@@ -8,8 +9,8 @@ public abstract class Bullet extends Sprites {
     private Speed speed;
     private int loopCount = 0;
 
-    public Bullet(int x, int y) {
-        super(x, y);
+    public Bullet(int x, int y, Direction dir) {
+        super(x, y, dir);
     }
 
     public Speed getSpeed() {

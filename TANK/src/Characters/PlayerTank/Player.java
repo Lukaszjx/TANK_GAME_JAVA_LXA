@@ -7,6 +7,7 @@ import javax.swing.*;
 import java.awt.Graphics;
 import Characters.Direction;
 import Characters.Tank;
+import Characters.getPlayerImage;
 import Characters.Bullet.Bullet;
 
 
@@ -73,8 +74,9 @@ public class Player extends Tank {
 
     @Override
     public void setImg() {
-        ImageIcon ii = new ImageIcon("TANK/src/resource/PlayerTank.gif");
-         setImg(ii.getImage());
+        // ImageIcon ii = new ImageIcon("TANK/src/resource/PlayerTank.gif");
+        //  setImg(ii.getImage());
+        setImg(getPlayerImage.getImg());
     }
 
 }

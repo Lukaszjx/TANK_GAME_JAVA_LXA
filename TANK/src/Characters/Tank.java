@@ -9,7 +9,7 @@ import Characters.Bullet.*;
 public abstract class Tank extends Sprites {
     private ArrayList<Bullet> bullets = new ArrayList<>();
     public Tank(int x, int y) {
-        super(x, y);
+        super(x, y, Direction.DOWN);
     }
 
     public void fire() {

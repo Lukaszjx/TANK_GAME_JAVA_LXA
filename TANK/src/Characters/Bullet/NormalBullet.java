@@ -4,12 +4,13 @@ import javax.swing.ImageIcon;
 
 import Characters.Direction;
 import Characters.Speed;
+import Characters.getBulletImage;
 
 public class NormalBullet extends Bullet{
 
     public NormalBullet(int x, int y, Direction dir)
     {
-        super(x,y);
+        super(x,y, dir);
         setHp();
         setImg();
         setSize();
@@ -38,8 +39,9 @@ public class NormalBullet extends Bullet{
     @Override
     public void setImg() {
         // TODO Auto-generated method stub
-        ImageIcon ii = new ImageIcon("TANK/src/resource/bullet.png");
-        setImg(ii.getImage());
+        // ImageIcon ii = new ImageIcon("TANK/src/resource/bullet.png");
+        // setImg(ii.getImage());
+        setImg(getBulletImage.getImg());
     }
 
     @Override
