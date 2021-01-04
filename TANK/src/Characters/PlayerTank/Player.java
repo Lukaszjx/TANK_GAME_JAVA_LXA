@@ -17,6 +17,7 @@ public class Player extends Tank {
         super(x, y);
         setImg();
         setSize();
+        setHp();
     }
 
     public void draw(Graphics g){
@@ -71,6 +72,13 @@ public class Player extends Tank {
         // TODO Auto-generated method stub
         super.setHp(5);
     }
+
+    // @Override
+    // public void setHp(int hp) {
+    //     if (hp < 1) 
+    //         System.exit(0);
+    //     super.setHp(hp);
+    // }
 
     @Override
     public void setImg() {

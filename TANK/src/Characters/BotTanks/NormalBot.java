@@ -13,6 +13,12 @@ public class NormalBot extends Bot {
         setSize();
         setSpeed();
         setFireRate();
+        setHp();
+    }
+
+    @Override
+    public void setHp(){
+        setHp(1);
     }
 
     @Override

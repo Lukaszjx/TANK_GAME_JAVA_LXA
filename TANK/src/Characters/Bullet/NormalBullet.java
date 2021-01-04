@@ -12,6 +12,7 @@ public class NormalBullet extends Bullet{
     {
         super(x,y, dir);
         setHp();
+        setDamage();
         setImg();
         setSize();
         setSpeed();

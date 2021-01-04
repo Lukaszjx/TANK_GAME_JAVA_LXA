@@ -47,12 +47,15 @@ public abstract class Tank extends Sprites {
 
         
         Bullet bullet = new NormalBullet(newX, newY, getDir());
-        System.out.println("new bullet created");
         bullets.add(bullet);
     }
 
     public ArrayList<Bullet> getBullets(){
         return bullets;
+    }
+    public void setBullets(ArrayList<Bullet> list)
+    {
+        this.bullets = list;
     }
 
 }

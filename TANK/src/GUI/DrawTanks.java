@@ -47,9 +47,9 @@ public class DrawTanks extends JPanel { // DRAW IMAGE
         oGameObjects.getPlayer().draw(g);
         oGameObjects.drawBots(g);
         oGameObjects.drawObs(g);
-    
         //oGameObjects.getPlayer().drawBullets(g);
         oGameObjects.drawBullets(g);
+        oGameObjects.bulletCollision();
 
 
     }

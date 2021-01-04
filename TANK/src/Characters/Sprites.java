@@ -134,7 +134,6 @@ public abstract class Sprites {
 
         return false;
     }
-
     
 
     public abstract void setHp();
