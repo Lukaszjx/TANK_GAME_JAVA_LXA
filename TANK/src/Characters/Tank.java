@@ -1,5 +1,6 @@
 package Characters;
 
+import java.awt.Rectangle;
 import java.util.ArrayList;
 
 import Characters.Bullet.*;
@@ -12,7 +13,14 @@ public abstract class Tank extends Sprites {
     }
 
     public void fire() {
-        Bullet bullet = new NormalBullet(getX(), getY(), getDir());
+        Rectangle bound = this.getBounds();
+        int width = (int) bound.getWidth();
+        int height = (int) bound.getHeight();
+        int newX = (int) (bound.getWidth()/2) + this.getX();
+        int newY = (int) (bound.getHeight()) + this.getY();
+
+        
+        Bullet bullet = new NormalBullet(newX, newY, getDir());
         System.out.println("new bullet created");
         bullets.add(bullet);
     }
