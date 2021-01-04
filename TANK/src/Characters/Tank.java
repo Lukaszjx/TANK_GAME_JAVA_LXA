@@ -16,8 +16,34 @@ public abstract class Tank extends Sprites {
         Rectangle bound = this.getBounds();
         int width = (int) bound.getWidth();
         int height = (int) bound.getHeight();
-        int newX = (int) (bound.getWidth()/2) + this.getX();
-        int newY = (int) (bound.getHeight()) + this.getY();
+        int newX = 0, newY = 0;        
+        switch (this.getDir())
+        {
+            case DOWN: 
+                {
+                    newX = (int) (width/2) + this.getX() - 10;
+                    newY = (int) (height) + this.getY();
+                    break;
+                }
+            case UP:
+                {
+                    newX = (int) (width/2) + this.getX() - 10;
+                    newY = (int) this.getY() - 25;
+                    break;
+                }
+            case LEFT:
+                {
+                    newX = (int) this.getX() - 25;
+                    newY = (int) (height/2) + this.getY() - 10;
+                    break;
+                }
+            case RIGHT:
+                {
+                    newX = (int) (width) + this.getX() + 5;
+                    newY = (int) height/2 + this.getY() - 10;
+                }
+
+        }
 
         
         Bullet bullet = new NormalBullet(newX, newY, getDir());
