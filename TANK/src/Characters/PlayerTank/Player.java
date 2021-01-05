@@ -7,6 +7,7 @@ import javax.swing.*;
 import java.awt.Graphics;
 import Characters.Direction;
 import Characters.Tank;
+import Characters.getPlayerImage;
 import Characters.Bullet.Bullet;
 
 
@@ -16,6 +17,7 @@ public class Player extends Tank {
         super(x, y);
         setImg();
         setSize();
+        setHp();
     }
 
     public void draw(Graphics g){
@@ -71,10 +73,18 @@ public class Player extends Tank {
         super.setHp(5);
     }
 
+    // @Override
+    // public void setHp(int hp) {
+    //     if (hp < 1) 
+    //         System.exit(0);
+    //     super.setHp(hp);
+    // }
+
     @Override
     public void setImg() {
-        ImageIcon ii = new ImageIcon("TANK/src/resource/PlayerTank.gif");
-         setImg(ii.getImage());
+        // ImageIcon ii = new ImageIcon("TANK/src/resource/PlayerTank.gif");
+        //  setImg(ii.getImage());
+        setImg(getPlayerImage.getImg());
     }
 
 }

@@ -1,15 +1,22 @@
 package Characters.Bullet;
+
+import Characters.Direction;
 import Characters.Speed;
 import Characters.Sprites;
+import Characters.BotTanks.Bot;
+import Characters.PlayerTank.Player;
+import Characters.Props.Obstacles;
+
 import java.awt.Graphics;
+import java.awt.Rectangle;
 public abstract class Bullet extends Sprites {
 
     private int damage;
     private Speed speed;
     private int loopCount = 0;
 
-    public Bullet(int x, int y) {
-        super(x, y);
+    public Bullet(int x, int y, Direction dir) {
+        super(x, y, dir);
     }
 
     public Speed getSpeed() {
@@ -45,6 +52,23 @@ public abstract class Bullet extends Sprites {
         }
 
     }
+    public boolean isHit(Bot bot) {
+        Rectangle r1 = this.getBounds();
+        Rectangle r2 = bot.getBounds();
+        return isCollide(r1,r2);
+    }
+    public boolean isHit(Player player) {
+        Rectangle r1 = this.getBounds();
+        Rectangle r2 = player.getBounds();
+        return isCollide(r1,r2);
+    }
+    public boolean isHit(Obstacles ob) {
+        Rectangle r1 = this.getBounds();
+        Rectangle r2 = ob.getBounds();
+        return isCollide(r1,r2);
+    }
+
+
     public abstract void setDamage();
     public abstract void setSpeed();
     

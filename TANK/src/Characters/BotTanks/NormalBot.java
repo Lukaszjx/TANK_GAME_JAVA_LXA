@@ -3,6 +3,7 @@ package Characters.BotTanks;
 import javax.swing.ImageIcon;
 
 import Characters.Speed;
+import Characters.getBotImage;
 
 public class NormalBot extends Bot {
 
@@ -12,13 +13,20 @@ public class NormalBot extends Bot {
         setSize();
         setSpeed();
         setFireRate();
+        setHp();
+    }
+
+    @Override
+    public void setHp(){
+        setHp(1);
     }
 
     @Override
     public void setImg() {
         // TODO Auto-generated method stub
-        ImageIcon ii = new ImageIcon("TANK/src/resource/EnemyTank.png");
-        setImg(ii.getImage());
+        // ImageIcon ii = new ImageIcon("TANK/src/resource/EnemyTank.png");
+        // setImg(ii.getImage());
+        setImg(getBotImage.getImg());
     }
 
     @Override

@@ -2,18 +2,21 @@ package Characters;
 
 import java.awt.*;
 
+import javax.swing.ImageIcon;
+
 import Characters.BotTanks.Bot;
 import Characters.Props.Obstacles;
 
 
 public abstract class Sprites {
     private int hp, x, y, w, h;
-    private Image img;
+    private Image[] img = new Image[4];
     private Direction dir;
 
-    public Sprites(int x, int y) {
+    public Sprites(int x, int y, Direction dir) {
         this.x = x;
         this.y = y;
+        setDir(dir);
     }
 
     public Direction getDir() {
@@ -41,13 +44,31 @@ public abstract class Sprites {
     }
 
     public Image getImg() {
-        return img;
+        switch (getDir()){
+            case DOWN:
+                return img[0];
+            case LEFT: 
+                return img[1];
+            case UP: 
+                return img[2];
+            case RIGHT: 
+                return img[3];
+            // if sprite have no direction, img is in img[0]
+            default: 
+                return img[0];
+        }
     }
 
-    public void setImg(Image img) {
-        this.img = img;
+    public void setImg(ImageIcon[] img) {
+        this.img = new Image[] {img[0].getImage(),
+                                img[1].getImage(),
+                                img[2].getImage(),
+                                img[3].getImage()};
     }
-
+    public void setImg(Image img)
+    {
+        this.img[0] = img;
+    }
     public int getX() {
         return x;
     }
@@ -113,7 +134,6 @@ public abstract class Sprites {
 
         return false;
     }
-
     
 
     public abstract void setHp();

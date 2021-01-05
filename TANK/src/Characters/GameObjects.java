@@ -58,7 +58,6 @@ public class GameObjects {
     public void drawBullets(Graphics g){
         for (Bot bot: bots)
         {
-            //System.out.println(bot.getBullets());
             for (Bullet bullet: bot.getBullets())
                     bullet.draw(g);
         }
@@ -76,6 +75,75 @@ public class GameObjects {
 
     public ArrayList<Bot> getBots() {
         return bots;
+    }
+
+    public void bulletCollision() {
+        // bullet of player hit others
+        ArrayList<Bullet> removeBullets = new ArrayList<Bullet>();
+        ArrayList<Bot> removeBots = new ArrayList<Bot>();
+        ArrayList<Obstacles> removeObs = new ArrayList<Obstacles>();
+        ArrayList<Bullet> list = player.getBullets();
+        for (Bullet i: list) 
+        {
+            for (Bot b: bots) 
+                if (i.isHit(b)) 
+                {
+                    removeBullets.add(i);
+                    System.out.println(i.getDamage());
+                    b.setHp(b.getHp() - i.getDamage());
+                    if (b.getHp() < 1) removeBots.add(b);
+                }
+            for (Obstacles ob: obs) 
+                if (i.isHit(ob))
+                {
+                    if (!removeBullets.contains(i)) removeBullets.add(i);
+                    ob.setHp(ob.getHp() - i.getDamage());
+                    if (ob.getHp() < 1) removeObs.add(ob);
+                }
+        }
+
+        bots.removeAll(removeBots);
+        obs.removeAll(removeObs);
+        list.removeAll(removeBullets);
+        player.setBullets(list);
+
+        removeBots.clear();
+        removeObs.clear();
+        removeBullets.clear();
+
+
+        // bullet of bots hit others
+
+
+        for (Bot b: bots)
+        {
+            list = b.getBullets();
+            for (Bullet i: list) 
+            {
+                if (i.isHit(player))
+                {
+                    removeBullets.add(i);
+                    player.setHp(player.getHp() - i.getDamage());
+                    if (player.getHp() < 1) System.exit(0);
+                }
+                for (Obstacles ob: obs) 
+                    if (i.isHit(ob))
+                    {
+                        if (!removeBullets.contains(i)) removeBullets.add(i);
+                        ob.setHp(ob.getHp() - i.getDamage());
+                        if (ob.getHp() < 1) removeObs.add(ob);
+                    }
+            }
+            obs.removeAll(removeObs);
+            list.removeAll(removeBullets);
+            b.setBullets(list);
+    
+            removeObs.clear();
+            removeBullets.clear();
+    
+        }
+
+        
     }
 
 }
