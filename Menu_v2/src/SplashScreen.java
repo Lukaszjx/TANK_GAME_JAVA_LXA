@@ -6,7 +6,7 @@ public class SplashScreen extends JWindow{
     ImageIcon img;
 
     public SplashScreen(){
-        splashscreen = Toolkit.getDefaultToolkit().getImage("src/treodaudebanthitcho.jpg");
+        splashscreen = Toolkit.getDefaultToolkit().getImage("images/LABEL.png");
 
 
         img = new ImageIcon(splashscreen);
