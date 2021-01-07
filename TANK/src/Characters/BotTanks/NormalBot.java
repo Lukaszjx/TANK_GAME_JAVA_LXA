@@ -3,7 +3,7 @@ package Characters.BotTanks;
 import javax.swing.ImageIcon;
 
 import Characters.Speed;
-import Characters.getBotImage;
+import Characters.getImage.getBotImage;
 
 public class NormalBot extends Bot {
 
@@ -45,7 +45,7 @@ public class NormalBot extends Bot {
     @Override
     public void setFireRate() {
         // TODO Auto-generated method stub
-        setFireRate(3);
+        setFireRate(6);
     }
     
 }

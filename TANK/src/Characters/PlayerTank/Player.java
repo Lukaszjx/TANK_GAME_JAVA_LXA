@@ -7,8 +7,8 @@ import javax.swing.*;
 import java.awt.Graphics;
 import Characters.Direction;
 import Characters.Tank;
-import Characters.getPlayerImage;
 import Characters.Bullet.Bullet;
+import Characters.getImage.getPlayerImage;
 
 
 // PLAYER TANK

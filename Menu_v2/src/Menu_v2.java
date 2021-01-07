@@ -18,12 +18,13 @@ public class Menu_v2 extends JFrame  {
         JButton b2= new JButton("Close game");
         
         //Adding action to the button
-        // b1.addActionListener(new ActionListener(){
-        //     @Override
-        //     public void actionPerformed(ActionEvent ae){
-        //         //Adding the file game here
-        //     }
-        // });
+        b1.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent ae){
+                //Adding the file game here
+                Window window = new Window();
+            }
+        });
 
         b2.addActionListener(new ActionListener(){
             @Override
