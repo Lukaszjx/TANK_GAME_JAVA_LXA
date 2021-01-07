@@ -4,7 +4,7 @@ import javax.swing.ImageIcon;
 
 import Characters.Direction;
 import Characters.Speed;
-import Characters.getBulletImage;
+import Characters.getImage.getBulletImage;
 
 public class NormalBullet extends Bullet{
 

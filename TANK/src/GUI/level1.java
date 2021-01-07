@@ -1,9 +1,18 @@
+package GUI;
 
-public class level {
+import Characters.*;
+import Characters.BotTanks.NormalBot;
+import Characters.PlayerTank.Player;
+import Characters.Props.MetalCrate;
+import Characters.Props.WoodCrate;
+import Characters.GameObjects;
+
+public class level1 {
+    public static void upload() {
 	 Player player= new Player(150,50);
-     GameObjects.creatInstance(player);
+     //GameObjects.createInstance(player);
      
-     Basement B = new Basement(450,50);
+     //Basement B = new Basement(450,50);
      
      WoodCrate wood1 = new WoodCrate(300,50);
      WoodCrate wood2 = new WoodCrate(600,50);
@@ -24,7 +33,7 @@ public class level {
      
      
      
-     GameObjects.getInstance().addBase(B);
+     //GameObjects.getInstance().addBase(B);
      
      GameObjects.getInstance().addBot(tR1);
      GameObjects.getInstance().addBot(tR2);
@@ -44,3 +53,4 @@ public class level {
      GameObjects.getInstance().addObs(metal5);
 
       }
+    }

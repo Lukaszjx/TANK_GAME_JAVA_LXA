@@ -3,6 +3,7 @@ package Characters.Bullet;
 import Characters.Direction;
 import Characters.Speed;
 import Characters.Sprites;
+import Characters.Base.Base;
 import Characters.BotTanks.Bot;
 import Characters.PlayerTank.Player;
 import Characters.Props.Obstacles;
@@ -68,8 +69,15 @@ public abstract class Bullet extends Sprites {
         return isCollide(r1,r2);
     }
 
+	public boolean isHit(Base base) {
+		Rectangle r1 = this.getBounds();
+        Rectangle r2 = base.getBounds();
+        return isCollide(r1, r2);
+	}
+
 
     public abstract void setDamage();
     public abstract void setSpeed();
+
     
 }

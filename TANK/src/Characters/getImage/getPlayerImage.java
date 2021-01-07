@@ -1,4 +1,4 @@
-package Characters;
+package Characters.getImage;
 
 import javax.swing.ImageIcon;
 
